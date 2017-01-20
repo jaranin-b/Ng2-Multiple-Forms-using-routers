@@ -1,0 +1,23 @@
+<form novalidate [formGroup]="form" (submit)="next()">
+  <md-card>
+    <md-card-title>Question 4 - What is your favorite color?</md-card-title>
+    <md-card-content>
+      <md-select placeholder="Please select your color" formControlName="favColor" #favColor>
+        <md-option *ngFor="let color of colors" [value]="color">
+          {{color}}
+        </md-option>
+      </md-select>
+      <div class="error" *ngIf="form.get('favColor').touched && form.get('favColor').hasError('required')">
+        <strong>Favorite color is required</strong>
+      </div>
+    </md-card-content>
+    <md-card-actions class="button-row">
+      <button type="button" md-raised-button (click)="back()">
+        <span class="glyphicon glyphicon-chevron-left"></span> Back
+      </button>
+      <button type="submit" [disabled]="form.invalid" md-raised-button>
+        Next <span class="glyphicon glyphicon-chevron-right"></span>
+      </button>
+    </md-card-actions>
+  </md-card>
+</form>

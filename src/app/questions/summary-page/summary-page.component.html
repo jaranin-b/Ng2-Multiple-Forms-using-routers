@@ -1,0 +1,30 @@
+<md-card>
+  <md-card-title>Summary</md-card-title>
+  <md-card-content>
+    <p>Please verify the following information:</p>
+    <p>
+      <strong>Name:</strong> {{(store | async)?.user.firstName}} {{(store | async)?.user.lastName}}
+    </p>
+    <p>
+      <strong>Date of birth:</strong> {{(store | async)?.user.birthday | date: 'dd/MM/yyyy'}}
+    </p>
+    <p>
+      <strong>Gender:</strong> {{(store | async)?.user.gender}}
+    </p>
+    <p>
+      <strong>Favorite color:</strong> {{(store | async)?.user.favColor}}
+    </p>
+    <p>
+      <strong>Education:</strong> {{(store | async)?.user.education.name}}
+    </p>
+    <p>
+      <strong>Number of cars:</strong> {{(store | async)?.user.numberOfCars}}
+    </p>
+  </md-card-content>
+  <md-card-actions class="button-row">
+    <button type="button" md-raised-button (click)="back()">
+      <span class="glyphicon glyphicon-chevron-left"></span> Back
+    </button>
+    <button type="click" md-raised-button (click)="submit()">Submit</button>
+  </md-card-actions>
+</md-card>

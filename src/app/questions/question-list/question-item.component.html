@@ -1,0 +1,12 @@
+<md-card [routerLink]="question.id <= (store | async)?.user.currentState ? [question.id] : []"
+         [ngClass]="{'active': (question.id <= (store | async)?.user.currentState)}">
+  <strong>Question {{question.id}}</strong>
+</md-card>
+
+<!--
+<md-card [routerLink]="question.id"
+         [ngClass]="{'active': (question.id <= (store | async)?.user.currentState)}">
+  <strong>Question {{question.id}} {{(store | async)?.user.currentState}}</strong>
+</md-card>
+-->
+

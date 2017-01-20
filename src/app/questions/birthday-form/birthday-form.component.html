@@ -1,0 +1,37 @@
+<form novalidate [formGroup]="form" (submit)="next()">
+  <md-card>
+    <md-card-title>Question 2 - When were you born?</md-card-title>
+    <md-card-content>
+      <div class="form-group datepicker">
+        <div class="input-group">
+          <input class="form-control" placeholder="Please select your date"
+                 formControlName="birthday" readonly="readonly">
+          <div class="input-group-addon" (click)="toggleCalendar()">
+            <img [src]="calendarIcon" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+          </div>
+          <!--<md-input-container>
+            <input md-input formControlName="birthday" #birthday placeholder="Please select your date"
+                   (click)="date.toggle()" ngbDatepicker #date="ngbDatepicker">
+          </md-input-container>-->
+        </div>
+        <div>
+          <datepicker formControlName="birthday" [showWeeks]="false" [hidden]="!isShowCalendar">
+          </datepicker>
+        </div>
+        <div class="error" *ngIf="form.get('birthday').touched && form.get('birthday').hasError('required')">
+          <strong>Birthday is required</strong>
+        </div>
+      </div>
+    </md-card-content>
+    <md-card-actions class="button-row">
+      <button type="button" md-raised-button (click)="back()">
+        <span class="glyphicon glyphicon-chevron-left"></span> Back
+      </button>
+      <button type="submit" [disabled]="form.invalid" md-raised-button>
+        Next <span class="glyphicon glyphicon-chevron-right"></span>
+      </button>
+    </md-card-actions>
+  </md-card>
+</form>
+
+
