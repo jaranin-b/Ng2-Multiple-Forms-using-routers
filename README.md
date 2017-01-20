@@ -5,16 +5,16 @@ This project was generated with [angular-cli](https://github.com/angular/angular
 ## To run this project on your local
 1. Go to the project folder and run this command: npm install -g angular-cli
 
-2. Install Angular Material UI (used for some components)
+2. Install Angular Material UI (used for some components) <br/>
 npm install --save @angular/material
 
-3. Install Angular Bootstrap (used for date picker)
+3. Install Angular Bootstrap (used for date picker) <br/>
 npm install ng2-bootstrap --save
 
-4. Install Ngrx (used for statement management)
+4. Install Ngrx (used for statement management) <br/>
 npm install @ngrx/core @ngrx/store --save
 
-5. Start server
+5. Start server <br/>
 ng serve
 
 6. Navigate to http://localhost:4200/
