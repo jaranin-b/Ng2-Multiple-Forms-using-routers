@@ -1,6 +1,23 @@
-# Questionsproject
+# Ng2 Multiple Forms using router project
 
 This project was generated with [angular-cli](https://github.com/angular/angular-cli) version 1.0.0-beta.25.5.
+
+## To run this project on your local
+1. Go to the project folder and run this command: npm install -g angular-cli
+
+2. Install Angular Material UI (used for some components)
+npm install --save @angular/material
+
+3. Install Angular Bootstrap (used for date picker)
+npm install ng2-bootstrap --save
+
+4. Install Ngrx (used for statement management)
+npm install @ngrx/core @ngrx/store --save
+
+5. Start server
+ng serve
+
+6. Navigate to http://localhost:4200/
 
 ## Development server
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
