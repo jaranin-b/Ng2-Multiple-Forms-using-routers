@@ -12,24 +12,13 @@ import {Store} from "@ngrx/store";
 })
 export class GenderFormComponent implements OnInit {
   form: FormGroup;
-  private currentState;
 
   constructor(
     private userService: UserService,
     private fb: FormBuilder,
     private router: Router,
     private store: Store<AppStore>,
-  ) {
-
-    this.store.select('user').subscribe(user=>{
-      this.currentState = user['currentState'];
-    });
-
-   /* if(this.currentState < 2) {
-      console.log(this.currentState);
-      this.router.navigate(['/question', this.currentState]);
-    }*/
-  }
+  ) { }
 
   ngOnInit() {
     this.userService.user$
@@ -48,11 +37,10 @@ export class GenderFormComponent implements OnInit {
     this.form = this.fb.group({
       gender: [user.gender, Validators.required]
     });
-
-    console.log(this.form);
   }
 
   next() {
+    // set data to session
     sessionStorage.setItem('gender', this.form.value.gender);
     this.userService.updateGender(this.form.value.gender);
     this.router.navigate(['/question', 4]);

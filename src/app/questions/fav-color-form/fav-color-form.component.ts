@@ -9,6 +9,7 @@ import {Router} from "@angular/router";
   styleUrls: ['../questions.component.css']
 })
 export class FavColorFormComponent implements OnInit {
+  // move to property file or dabase later
   colors  = [
     'Red', 'Green', 'Blue'
   ];
@@ -25,7 +26,6 @@ export class FavColorFormComponent implements OnInit {
     this.userService.user$
       .subscribe(user => {
         this.initForm(user);
-        this.handleFormChanges();
       });
   }
 
@@ -35,11 +35,8 @@ export class FavColorFormComponent implements OnInit {
     });
   }
 
-  handleFormChanges() {
-  }
-
   next() {
-    console.log(this.form);
+    // set data to session
     sessionStorage.setItem('favColor', this.form.value.favColor);
     this.userService.updateFavColor(this.form.value.favColor);
     this.router.navigate(['/question', 5]);

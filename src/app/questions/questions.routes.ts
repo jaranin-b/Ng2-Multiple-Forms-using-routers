@@ -15,5 +15,5 @@ export const QUESTION_ROUTES: Routes = [
   { path: '4', component: FavColorFormComponent },
   { path: '5', component: EducationFormComponent },
   { path: '6', component: NumberOfCarsFormComponent },
-  { path: '7', component: SummaryPageComponent },
+  { path: 'summary', component: SummaryPageComponent },
 ];

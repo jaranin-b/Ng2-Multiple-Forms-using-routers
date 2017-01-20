@@ -3,19 +3,8 @@
     <md-card-title>Question 2 - When were you born?</md-card-title>
     <md-card-content>
       <div class="form-group datepicker">
-        <div class="input-group">
-          <input class="form-control" placeholder="Please select your date"
-                 formControlName="birthday" readonly="readonly">
-          <div class="input-group-addon" (click)="toggleCalendar()">
-            <img [src]="calendarIcon" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
-          </div>
-          <!--<md-input-container>
-            <input md-input formControlName="birthday" #birthday placeholder="Please select your date"
-                   (click)="date.toggle()" ngbDatepicker #date="ngbDatepicker">
-          </md-input-container>-->
-        </div>
         <div>
-          <datepicker formControlName="birthday" [showWeeks]="false" [hidden]="!isShowCalendar">
+          <datepicker formControlName="birthday" #birthday [showWeeks]="false" >
           </datepicker>
         </div>
         <div class="error" *ngIf="form.get('birthday').touched && form.get('birthday').hasError('required')">

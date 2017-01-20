@@ -10,7 +10,9 @@ import {Router} from "@angular/router";
 })
 export class EducationFormComponent implements OnInit {
 
-  educationOptions  = [
+  // TBD - call service to get data from database
+  educationOptions =
+  [
     {id: 1, name: 'Primary School'},
     {id: 2, name: 'Secondary School'},
     {id: 3, name: 'Bachelor degree'},
@@ -34,23 +36,18 @@ export class EducationFormComponent implements OnInit {
 
   initForm(user: UserProfile) {
     let education = JSON.parse(sessionStorage.getItem('education'));
-    console.log(education);
 
     if(education != undefined) {
       user.education = education;
     }
 
-    console.log(user.education);
-
     this.form = this.fb.group({
       education: [user.education, Validators.required],
     });
-   // this.form.controls['education'].value = user.education;
-    console.log(this.form);
   }
 
   next() {
-    console.log(this.form);
+    // set data to sessions
     sessionStorage.setItem('education', JSON.stringify(this.form.value.education));
     this.userService.updateEducation(this.form.value.education);
     this.router.navigate(['/question', 6]);
@@ -58,9 +55,5 @@ export class EducationFormComponent implements OnInit {
 
   back() {
     this.router.navigate(['/question', 4]);
-  }
-
-  onSelectEducation() {
-    console.log('select');
   }
 }

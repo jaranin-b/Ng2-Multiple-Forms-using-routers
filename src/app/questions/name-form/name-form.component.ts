@@ -1,5 +1,5 @@
 import {Component, OnInit, OnDestroy} from '@angular/core';
-import {NgForm, FormGroup, FormBuilder, Validators} from "@angular/forms";
+import {FormGroup, FormBuilder, Validators} from "@angular/forms";
 import {Router} from "@angular/router";
 import {UserProfile, UserService} from "../state/user";
 import {Subscription} from "rxjs";
@@ -42,13 +42,12 @@ export class NameFormComponent implements OnInit, OnDestroy {
       firstName: [user.firstName, Validators.required],
       lastName: [user.lastName, Validators.required]
     });
-    console.log(this.form);
   }
 
   next() {
+    // set data to session
     sessionStorage.setItem('name', JSON.stringify(this.form.value));
     this.userService.updateName(this.form.value);
-    console.log(this.form.value);
     this.router.navigate(['/question', 2]);
   }
 

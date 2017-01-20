@@ -16,15 +16,12 @@ export class NumberOfCarsFormComponent implements OnInit {
     private userService: UserService,
     private fb: FormBuilder,
     private router: Router
-  )
-  {
-  }
+  ) { }
 
   ngOnInit() {
     this.userService.user$
       .subscribe(user => {
         this.initForm(user);
-        this.handleFormChanges();
       });
   }
 
@@ -34,18 +31,14 @@ export class NumberOfCarsFormComponent implements OnInit {
     });
   }
 
-  handleFormChanges() {
-  }
-
   next() {
-    console.log(this.form.value);
+    // set data to session
     sessionStorage.setItem('numberOfCars', this.form.value.numberOfCars);
     this.userService.updateNumberOfCars(this.form.value.numberOfCars);
-    this.router.navigate(['/question', 7]);
+    this.router.navigate(['/question', 'summary']);
   }
 
   back() {
     this.router.navigate(['/question', 5]);
   }
-
 }

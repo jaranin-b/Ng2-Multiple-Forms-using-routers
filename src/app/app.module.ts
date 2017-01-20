@@ -8,19 +8,18 @@ import { QuestionsComponent } from './questions/questions.component';
 import { QuestionListComponent } from './questions/question-list/question-list.component';
 import { QuestionItemComponent } from './questions/question-list/question-item.component';
 import { NameFormComponent } from './questions/name-form/name-form.component';
-import {routing} from "./app.routing";
+import { routing} from "./app.routing";
 import { BirthdayFormComponent } from './questions/birthday-form/birthday-form.component';
-import {MaterialModule} from "@angular/material";
-import {UserService, user} from "./questions/state/user";
-import {StoreModule} from "@ngrx/store";
+import { MaterialModule } from "@angular/material";
+import { UserService, user } from "./questions/state/user";
+import { StoreModule } from "@ngrx/store";
 import { DatePickerModule } from 'ng2-datepicker';
 import { GenderFormComponent } from './questions/gender-form/gender-form.component';
 import { FavColorFormComponent } from './questions/fav-color-form/fav-color-form.component';
 import { SummaryPageComponent } from './questions/summary-page/summary-page.component';
 import { EducationFormComponent } from './questions/education-form/education-form.component';
 import { NumberOfCarsFormComponent } from './questions/number-of-cars-form/number-of-cars-form.component';
-import {NgbModule, NgbDateParserFormatter} from '@ng-bootstrap/ng-bootstrap';
-import {NgbDateThParserFormatter} from "./questions/birthday-form/ngb-date-th-parser-formatter";
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { DatepickerModule} from 'ng2-bootstrap';
 
 @NgModule({
@@ -49,7 +48,7 @@ import { DatepickerModule} from 'ng2-bootstrap';
     NgbModule.forRoot(),
     DatepickerModule.forRoot()
   ],
-  providers: [UserService, {provide: NgbDateParserFormatter, useClass: NgbDateThParserFormatter}],
+  providers: [UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

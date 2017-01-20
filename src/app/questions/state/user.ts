@@ -13,7 +13,7 @@ const UPDATE_NUMBER_OF_CARS = 'UPDATE_NUMBER_OF_CARS';
 export interface UserProfile {
   firstName: string,
   lastName: string,
-  birthday: string,
+  birthday,
   gender: string,
   favColor: string,
   education: string,
@@ -32,6 +32,8 @@ const initialState = {
   currentState: 1
 };
 
+// for state management
+// in the final state, all questions will be in AppStore
 export const user = (state: UserProfile = initialState, action: Action) => {
   switch (action.type) {
     case UPDATE_NAME:
@@ -97,5 +99,9 @@ export class UserService {
 
   updateNumberOfCars(user) {
     this.store.dispatch({type: UPDATE_NUMBER_OF_CARS, payload: user});
+  }
+
+  submitUserInfo(user) {
+    // call service to submit user info
   }
 }

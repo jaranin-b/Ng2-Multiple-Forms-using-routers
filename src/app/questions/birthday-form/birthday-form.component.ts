@@ -11,8 +11,6 @@ import {Router} from "@angular/router";
 export class BirthdayFormComponent implements OnInit {
 
   form: FormGroup;
-  calendarIcon = require('../../assets/image/calendar-icon.svg');
-  isShowCalendar = false;
 
   constructor(
     private userService: UserService,
@@ -32,8 +30,7 @@ export class BirthdayFormComponent implements OnInit {
     let d = new Date(birthday);
 
     if(birthday != undefined) {
-      console.log(d);
-      user.birthday = birthday;
+      user.birthday = d;
     }
 
     this.form = this.fb.group({
@@ -42,10 +39,9 @@ export class BirthdayFormComponent implements OnInit {
   }
 
   next() {
+    // set data to session
     let birthday = this.form.value.birthday;
     let date = birthday.toString();
-    //let dateJs = new Date(date['year'], date['month'] == 0 ? 0 : date['month'] - 1, date['day']);
-
     sessionStorage.setItem('birthday', date);
 
     this.userService.updateBirthday(date);
@@ -55,10 +51,5 @@ export class BirthdayFormComponent implements OnInit {
   back() {
     this.router.navigate(['/question', 1]);
   }
-
-  toggleCalendar(){
-    this.isShowCalendar = !this.isShowCalendar;
-  }
-
 }
 
