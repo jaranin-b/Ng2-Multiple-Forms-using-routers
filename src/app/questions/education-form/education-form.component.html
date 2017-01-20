@@ -2,9 +2,9 @@
   <md-card>
     <md-card-title>Question 5 - What is your highest education level?</md-card-title>
     <md-card-content>
-      <md-select placeholder="Please select your education level" formControlName="education" #favColor
+      <md-select placeholder="Please select your education level" formControlName="education" #education
                  (onSelect)="onSelectEducation()">
-        <md-option *ngFor="let educationOption of educationOptions" [value]="educationOption.id">
+        <md-option *ngFor="let educationOption of educationOptions" [value]="educationOption">
           {{educationOption.name}}
         </md-option>
       </md-select>

@@ -56,4 +56,8 @@ export class EducationFormComponent implements OnInit {
   back() {
     this.router.navigate(['/question', 4]);
   }
+
+  onSelectEducation(){
+
+  }
 }

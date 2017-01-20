@@ -3,6 +3,13 @@
     <md-card-title>Question 2 - When were you born?</md-card-title>
     <md-card-content>
       <div class="form-group datepicker">
+        <!--<div class="input-group">
+          <input class="form-control" formControlName="birthday" placeholder="Please select your date"
+                 #birthday readonly="readonly">
+          <div class="input-group-addon" (click)="toggleCalendar()">
+            <img [src]="calendarIcon" style="width: 1.2rem; height: 1rem; cursor: pointer;"/>
+          </div>
+        </div>-->
         <div>
           <datepicker formControlName="birthday" #birthday [showWeeks]="false" >
           </datepicker>
